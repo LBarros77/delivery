@@ -1,7 +1,7 @@
 package com.company.delivery.controllers;
 
 import com.company.delivery.models.UserModel;
-import com.company.delivery.dto.UserDto;
+import com.company.delivery.DTOs.UserDto;
 import com.company.delivery.services.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
