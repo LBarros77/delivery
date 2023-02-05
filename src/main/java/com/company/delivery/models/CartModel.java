@@ -8,7 +8,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "Carts")
-public class CarttModel extends Serializable {
+public class CartModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -16,14 +16,54 @@ public class CarttModel extends Serializable {
     private UUID id;
 
     @Column(nullable = false, length = 100)
-    Object name;
+    private Object name;
 
     @Column()
     float totalPrice;
 
     @Column()
-    LocalDateTime createAt;
+    private LocalDateTime createAt;
 
     @Column()
-    LocalDateTime updateAt;
+    private LocalDateTime updateAt;
+
+    public UUID getId() {
+        return id;
+    }
+
+    public Object getName() {
+        return name;
+    }
+
+    public float getTotalPrice() {
+        return totalPrice;
+    }
+
+    public LocalDateTime getCreateAt() {
+        return createAt;
+    }
+
+    public LocalDateTime getUpdateAt() {
+        return updateAt;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public void setName(Object name) {
+        this.name = name;
+    }
+
+    public void setTotalPrice(float totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public void setCreateAt(LocalDateTime createAt) {
+        this.createAt = createAt;
+    }
+
+    public void setUpdateAt(LocalDateTime updateAt) {
+        this.updateAt = updateAt;
+    }
 }

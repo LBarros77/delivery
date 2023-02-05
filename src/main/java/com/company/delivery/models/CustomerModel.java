@@ -6,5 +6,14 @@ import jakarta.persistence.*;
 @Table(name = "Customers")
 public class CustomerModel extends UserModel {
     @Column(length = 14)
-    private String cnpj;
+    private String cpf;
+
+    /*
+    + selectSales()
+    + buyFood()
+    + viewMenu()
+    + makePayment()
+    + addToCart()
+    + deleteFromToCart()
+     */
 }

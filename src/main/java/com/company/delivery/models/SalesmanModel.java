@@ -6,5 +6,15 @@ import jakarta.persistence.*;
 @Table(name = "Salesman")
 public class SalesmanModel extends UserModel {
     @Column(length = 11)
-    private String cpf;
+    private String cnpj;
+
+    /*
+    + viewFood(): str
+    + addMenu(): boolean
+    + addFood(foodId): boolean
+    + deletFood(foodId, content): boolean
+    + modifyMenu(menuId, conent): boolean
+    + makeDeliver()
+    + confirmeDeliver()
+     */
 }
