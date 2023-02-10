@@ -1,20 +1,23 @@
 package com.company.delivery.models;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@Table(name = "Salesman")
+@Table(name = "Salesmen")
 public class SalesmanModel extends UserModel {
     @Column(length = 11)
     private String cnpj;
 
-    /*
-    + viewFood(): str
-    + addMenu(): boolean
-    + addFood(foodId): boolean
-    + deletFood(foodId, content): boolean
-    + modifyMenu(menuId, conent): boolean
-    + makeDeliver()
-    + confirmeDeliver()
-     */
+    @OneToMany(targetEntity = ProductModel.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "Manage", referencedColumnName = "id")
+    private List<ProductModel> products;
 }

@@ -1,19 +1,25 @@
 package com.company.delivery.models;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "Customers")
 public class CustomerModel extends UserModel {
     @Column(length = 14)
     private String cpf;
 
-    /*
-    + selectSales()
-    + buyFood()
-    + viewMenu()
-    + makePayment()
-    + addToCart()
-    + deleteFromToCart()
-     */
+//    @OneToMany(targetEntity = ProductModel.class)
+//    @JoinColumn(name = "Buy", referencedColumnName = "id")
+//    private List<ProductModel> products;
+
+    @OneToOne(targetEntity = CartModel.class)
+    @JoinColumn(name = "Has", referencedColumnName = "id")
+    private CartModel Cart;
 }

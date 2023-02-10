@@ -1,80 +1,48 @@
 package com.company.delivery.models;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
+
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 import java.util.UUID;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "Products")
 public class ProductModel implements Serializable {
     private static final long serialVersionUID = 1L;
+
+//    private String[] CATEGORIES = {"Lanche", "Bebida"};
+//    private String[][] SUB_CATEGORIES = {
+//            {"Salgado", "Doce", "Outros"},
+//            {"Gelada", "Quente", "Natural", "Outros"}
+//    };
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
     @Column(nullable = false, length = 100)
-    protected String name;
+    private String name;
 
     @Column(length = 80)
-    protected String category;
+    private String category;
 
     @Column(length = 80)
-    protected String subCategory;
+    private String subCategory;
 
-    @Column()
-    protected LocalDateTime createAt;
+    private float price;
 
-    @Column()
-    protected LocalDateTime updateAt;
+    private int quantity;
 
-    public UUID getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public String getSubCategory() {
-        return subCategory;
-    }
-
-    public LocalDateTime getCreateAt() {
-        return createAt;
-    }
-
-    public LocalDateTime getUpdateAt() {
-        return updateAt;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public void setSubCategory(String subCategory) {
-        this.subCategory = subCategory;
-    }
-
-    public void setCreateAt(LocalDateTime createAt) {
-        this.createAt = createAt;
-    }
-
-    public void setUpdateAt(LocalDateTime updateAt) {
-        this.updateAt = updateAt;
-    }
+//    @ManyToOne(targetEntity = SalesmanModel.class)
+//    private SalesmanModel salesman;
+//
+//    @ManyToMany(targetEntity = CustomerModel.class)
+//    private CustomerModel customer;
 }
